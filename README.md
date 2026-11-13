@@ -8,11 +8,22 @@ A self-hosted proxy setup that runs inside GitHub Codespaces.
 2. Navigate to your fork and open the **Codespaces** tab under the Code button
 3. Create a new codespace on the main branch
 4. Wait a few minutes for the environment to build and initialize
-5. Your connection string will appear in the terminal once setup is complete
+5. Xray starts with the container. If VS Code asks to allow automatic tasks, allow them. The **Start g2ray** task publishes port 443 and prints the VLESS connection string in the integrated terminal.
 
 ## Connecting
 
 Grab the link printed in the terminal and paste it into any compatible client (v2rayNG, Nekobox, etc.).
+The link is printed only after Codespaces confirms that the forwarded port is public. If a client reports `-1` or the endpoint redirects to GitHub sign-in, rerun the **Start g2ray** task and use the newly printed link.
+
+## Recovering a connection
+
+If the endpoint stops responding, run the **Recover g2ray** task from the VS Code task list, or run:
+
+```bash
+bash .devcontainer/recover.sh
+```
+
+This generates a new UUID, updates both the workspace and running Xray configurations, restarts Xray, republishes port 443, and prints a new link only after the endpoint responds. Import that link into the client; the previous UUID will no longer work. The Codespaces hostname itself cannot be changed by this script. If the hostname is unavailable, create a new Codespace.
 
 ## Usage Limits
 

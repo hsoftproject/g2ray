@@ -4,6 +4,7 @@
     "dockerfile": "Dockerfile",
     "context": "."
   },
+  "overrideCommand": false,
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "installZsh": false
@@ -11,10 +12,6 @@
     "ghcr.io/devcontainers/features/github-cli:1": {
       "version": "latest"
     }
-  },
-  "postAttachCommand": {
-    "expose": "gh codespace ports visibility 443:public -c $CODESPACE_NAME",
-    "start": "sudo /usr/local/bin/xray run -c /etc/xray/g2ray.json"
   },
   "portsAttributes": {
     "443": {
