@@ -13,6 +13,9 @@
       "version": "latest"
     }
   },
+  "remoteEnv": {
+    "HOME": "/home/vscode"
+  },
   "portsAttributes": {
     "443": {
       "label": "g2ray",
