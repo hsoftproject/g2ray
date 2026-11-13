@@ -13,7 +13,7 @@
       "version": "latest"
     }
   },
-  "remoteEnv": {
+  "containerEnv": {
     "HOME": "/home/vscode"
   },
   "portsAttributes": {
